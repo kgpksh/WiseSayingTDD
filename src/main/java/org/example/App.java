@@ -8,6 +8,7 @@ public class App {
         this.sc = sc;
     }
     public void run() {
+        Service service = new Service();
         System.out.println("== 명언 앱 ==");
         while (true) {
             System.out.print("명령) ");
@@ -20,8 +21,10 @@ public class App {
                 case "종료":
                     System.out.println("프로그램이 종료되었습니다");
                     return;
+                case "등록" :
+                    service.save(sc.nextLine().trim());
                 default:
-                    System.out.printf("%s(은)는 올바르지 않은 명령입니다\n", cmd);
+                System.out.printf("%s(은)는 올바르지 않은 명령입니다\n", cmd);
             }
         }
     }
