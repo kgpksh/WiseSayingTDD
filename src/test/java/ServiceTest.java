@@ -11,4 +11,15 @@ class ServiceTest {
         assertThat(AppTestRunner.run("등록 \n 현재를 사랑하라 \n 작자미상"))
                 .contains("1번 명언이 등록되었습니다.");
     }
+
+    @Test
+    @DisplayName("등록할때 마다 생성되는 명언번호가 증가")
+    public void t2() {
+        assertThat(AppTestRunner.run("등록 \n 현재를 사랑하라 \n 작자미상 \n " +
+                "등록 \n 현재를 사랑하라 \n 작자미상 \n" +
+                "등록 \n 현재를 사랑하라 \n 작자미상"))
+                .contains("1번 명언이 등록되었습니다.")
+                .contains("2번 명언이 등록되었습니다.")
+                .contains("3번 명언이 등록되었습니다.");
+    }
 }
